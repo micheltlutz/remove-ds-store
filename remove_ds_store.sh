@@ -8,17 +8,17 @@ if [ "$#" -ne 1 ]; then
     exit 1
 fi
 
-PATH=$1
+PATHTOREMOVE=$1
 
 # Check if the provided path is a directory
-if [ ! -d "$PATH" ]; then
-    echo "Error: '$PATH' is not a valid directory."
+if [ ! -d "$PATHTOREMOVE" ]; then
+    echo "Error: '$PATHTOREMOVE' is not a valid directory."
     exit 1
 fi
 
-echo "Searching for and removing .DS_Store files in '$PATH'..."
+echo "Searching for and removing .DS_Store files in '$PATHTOREMOVE'..."
 
 # Find and remove .DS_Store files
-find "$PATH" -name '.DS_Store' -exec rm {} \;
+find "$PATHTOREMOVE" -name '.DS_Store' -exec rm {} \;
 
-echo ".DS_Store files successfully removed from '$PATH'."
+echo ".DS_Store files successfully removed from '$PATHTOREMOVE'."
